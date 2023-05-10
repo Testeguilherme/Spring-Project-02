@@ -1,32 +1,26 @@
 package com.devsuperior.dslist.dto;
 
-import com.devsuperior.dslist.entities.Game;
-import com.devsuperior.dslist.projections.GameMinProjection;
 
-public class GameMinDTO {
+import com.devsuperior.dslist.entities.Game;
+import org.springframework.beans.BeanUtils;
+
+public class GameDTO {
 
     private Long id;
     private String title;
     private Integer year;
+    private String genre;
+    private String platform;
+    private Double score;
     private String imgUrl;
     private String shortDescription;
+    private String longDescription;
 
-    public GameMinDTO() {
+    public GameDTO() {
     }
 
-    public GameMinDTO(Game entity) {
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.year = entity.getYear();
-        this.imgUrl = entity.getImgUrl();
-        this.shortDescription = entity.getShortDescription();
-    }
-    public GameMinDTO(GameMinProjection projection) {
-        this.id = projection.getId();
-        this.title = projection.getTitle();
-        this.year = projection.getYear();
-        this.imgUrl = projection.getImgUrl();
-        this.shortDescription = projection.getShortDescription();
+    public GameDTO(Game entity) {
+        BeanUtils.copyProperties(entity, this);
     }
 
     public Long getId() {
@@ -53,6 +47,30 @@ public class GameMinDTO {
         this.year = year;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
     public String getImgUrl() {
         return imgUrl;
     }
@@ -68,5 +86,14 @@ public class GameMinDTO {
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
 
 }

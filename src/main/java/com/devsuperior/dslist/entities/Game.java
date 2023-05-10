@@ -28,13 +28,13 @@ public class Game {
     @Column(name = "score")
     private Double score;
 
-    @Column(name = "imgUrl")
+    @Column(name = "img_url")
     private String imgUrl;
 
-    @Column(name = "shortDescription", columnDefinition = "TEXT")
+    @Column(name = "short_description", columnDefinition = "TEXT")
     private String shortDescription;
 
-    @Column(name = "longDescription", columnDefinition = "TEXT")
+    @Column(name = "long_description", columnDefinition = "TEXT")
     private String longDescription;
 
     public Game() {
